@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="test">
+	<compiler coordinate="global"/>
+	<option>
+		<flag gravity="disable"/>
+	</option>
+
+	<default>
+		<geom rgba=".9 .7 .1 1" size="0.01"/>
+		<site type="sphere" rgba=".9 .9 .9 1" size="0.005"/>
+		<joint type="hinge" axis="0 1 0" limited="true" range="-120 120" solimplimit="0.95 0.95 0.1"/>
+	</default>
+
+	<visual>
+		<headlight diffuse=".7 .7 .7"/>
+	</visual>
+
+	<worldbody>
+
+		
+		<!-- <body>
+			<geom type="ellipsoid" pos="0.3 -0.2 0.15" size="0.01 0.01 0.01"/>				
+		</body> -->
+
+		<site pos="0. -0.2 0.2" size="0.005"/>
+		
+
+		<body>
+			<geom type="capsule" fromto="0 0 0.2  0.2 0 0.2"/>
+			<geom name="g1" type="cylinder" fromto="0 0 0.18    0 0 0.22" 
+					size="0.02" rgba=".3 .9 .3 .4"/>
+			<joint name="j0-0" limited="false" axis="0 0 1" pos="0 0 0.2"/>	
+			<site name="end-1" pos="0.2 0 0.2" />
+		</body>
+
+
+	</worldbody>
+
+	<sensor>
+		<framepos objname="end-1" objtype="site"/>
+	</sensor>
+	
+	
+</mujoco>
